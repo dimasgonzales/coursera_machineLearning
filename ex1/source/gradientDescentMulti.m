@@ -19,12 +19,14 @@ for iter = 1:num_iters
 
 
 
+    m = size(X, 1);          % number of training examples
+    hypothesis = X*theta;    % hypothesis of hypothesis on all m examples
 
+    resulant_sigma = X'*(hypothesis - y);
+    
+    delta = (1/m) * resulant_sigma;
 
-
-
-
-
+    theta = theta - alpha.*delta;
 
 
     % ============================================================
