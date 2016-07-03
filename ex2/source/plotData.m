@@ -12,11 +12,29 @@ figure; hold on;
 %               examples and 'ko' for the negative examples.
 %
 
+% My way
+m = length(y);
+
+X_pos = [];
+X_neg = [];
+
+for i=1:m,
+    if y(i) == 1
+        X_pos = [X_pos; X(i,1)  X(i, 2)];
+    else
+        X_neg = [X_neg; X(i,1)  X(i, 2)];
+    end
+end
+
+plot(X_neg(:,1), X_neg(:,2), 'ko', 'MarkerFaceColor', 'y');
+plot(X_pos(:,1), X_pos(:,2), 'k+', 'LineWidth', 2);
 
 
 
-
-
+% Sample Code
+% pos = find(y==1); neg = find(y==0);
+% plot(X(pos,1), X(pos,2), 'k+', 'LineWidth', 2);
+% plot(X(neg,1), X(neg,2), 'ko', 'MarkerFaceColor', 'y');
 
 
 
