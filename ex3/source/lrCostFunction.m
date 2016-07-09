@@ -38,8 +38,13 @@ grad = zeros(size(theta));
 
 
 
+hypothesis = sigmoid(X * theta);
 
+theta(1) = 0; % I should not regularize theta_1
 
+J = 1/m * ( -y' * log(hypothesis) - (1 - y)' * log(1 - hypothesis) ) + (lambda/(2*m) * sum(theta .^ 2));
+
+grad = 1/m * ((hypothesis - y)' * X) + (lambda/m) .* theta';
 
 
 
